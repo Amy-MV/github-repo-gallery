@@ -2,6 +2,7 @@
 
 const overview = document.querySelector(".overview");
 const username = "Amy-MV";
+const repoList = document.querySelector(".repo-list");
 
 //Fetch API JSON Data
 
@@ -36,7 +37,7 @@ const displayUserInfo = function (data) {
 //Select the Repos List & Fetch Repos
 
 const gitRepos = async function () {
-    const fetchRepos = await fetch(`https://api.github.com/user/repos?sort=updated&per_page=100`);
+    const fetchRepos = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
     const repoData = await fetchRepos.json();
     displayRepos(repoData);
 };
